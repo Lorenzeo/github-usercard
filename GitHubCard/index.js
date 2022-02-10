@@ -1,9 +1,9 @@
-
+import axios from 'axios';
 
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
-    https://api.github.com/users/<your name>
+    https://api.github.com/users/lorenzeo
 */
 
 /*
@@ -51,6 +51,55 @@ const followersArray = [];
       </div>
     </div>
 */
+
+function makeUserCard(userArray){
+
+//create elements
+const userCard = document.createElement("div")
+const userImg = document.createElement("img")
+const userInfo = document.createElement("div")
+const userName = document.createElement("h3")
+const userAlias = document.createElement("p")
+const userLocation = document.createElement("p")
+const userProfile = document.createElement("p")
+const userAnchor = document.createElement("p")
+const userFollowers = document.createElement("p")
+const userFollowing = document.createElement("p")
+const userBio = document.createElement("p")
+
+//appending elements
+userCard.appendChild(userImg)
+userCard.appendChild(userInfo)
+userCard.appendChild(userName)
+userCard.appendChild(userAlias)
+userCard.appendChild(userLocation)
+userCard.appendChild(userProfile)
+userProfile.appendChild(userAnchor)
+userCard.appendChild(userFollowers)
+userCard.appendChild(userFollowing)
+userCard.appendChild(userBio)
+
+//adding class names
+userCard.classList = "card";
+userInfo.classList = "card-info";
+userName.classList = "name";
+userAlias.classList = "username";
+
+
+
+
+return userCard
+}
+
+axios.get(`https://api.github.com/users/lorenzeo`)
+.then(resp => {
+
+})
+.catch(err => {
+  console.error(err);
+})
+.finally(() => console.log("DONE"))
+
 
 /*
   List of LS Instructors Github username's:
